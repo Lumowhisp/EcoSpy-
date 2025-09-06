@@ -155,7 +155,7 @@ function PlanChoosing() {
               </ul>
               <div className="flex items-center justify-center">
                 <a
-                  href="/h"
+                  href="/bulkplanorder"
                   type="button"
                   className="px-5 py-3 bg-green-700 text-gray-200 rounded mt-5 mb-5  hover:bg-green-500 hover:text-green-950 transform transition duration-1000"
                 >

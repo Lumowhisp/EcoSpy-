@@ -1,14 +1,10 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { auth, db } from "../../firebase";
-import {
-  createUserWithEmailAndPassword,
-  sendEmailVerification,
-  updateProfile,
-} from "firebase/auth";
+import { createUserWithEmailAndPassword, sendEmailVerification, updateProfile } from "firebase/auth";
 import { doc, setDoc, serverTimestamp } from "firebase/firestore";
 
-function Signup() {
+function Signupp() {
   const [userName, setUserName] = useState("");
   const [userEmail, setUserEmail] = useState("");
   const [userPass, setUserPass] = useState("");
@@ -22,11 +18,7 @@ function Signup() {
       return;
     }
     try {
-      const userCredential = await createUserWithEmailAndPassword(
-        auth,
-        userEmail,
-        userPass
-      );
+      const userCredential = await createUserWithEmailAndPassword(auth, userEmail, userPass);
       const user = userCredential.user;
 
       await updateProfile(auth.currentUser, {
@@ -42,31 +34,16 @@ function Signup() {
         email: userEmail,
         phone: "", // if you want phone at signup, add an input and replace this
         plan: "Regular",
-        ecopoints: 0,
-        wastecollected: 0,
+        ecopoints: 100,
+        wastecollected: 12,
         createdAt: serverTimestamp(),
       });
 
       // create initial placeholder wasteHistory docs (DOC001, DOC002, DOC003)
       const initialHistory = [
-        {
-          id: "DOC001",
-          note: "initial placeholder",
-          wasteKg: 0,
-          createdAt: serverTimestamp(),
-        },
-        {
-          id: "DOC002",
-          note: "initial placeholder",
-          wasteKg: 0,
-          createdAt: serverTimestamp(),
-        },
-        {
-          id: "DOC003",
-          note: "initial placeholder",
-          wasteKg: 0,
-          createdAt: serverTimestamp(),
-        },
+        { id: "DOC001", note: "initial placeholder", wasteKg: 0, createdAt: serverTimestamp() },
+        { id: "DOC002", note: "initial placeholder", wasteKg: 0, createdAt: serverTimestamp() },
+        { id: "DOC003", note: "initial placeholder", wasteKg: 0, createdAt: serverTimestamp() },
       ];
       await Promise.all(
         initialHistory.map((h) =>
@@ -213,4 +190,4 @@ function Signup() {
   );
 }
 
-export default Signup;
+export default Signupp;

@@ -16,7 +16,7 @@ function Aboutus() {
             <li>
               <a
                 className="text-2xl hover:text-green-600 hover:underline transition duration-400"
-                href="/signin"
+                href="/get-started"
               >
                 Log in
               </a>
@@ -24,7 +24,7 @@ function Aboutus() {
             <li>
               <a
                 className="text-2xl hover:text-green-600 hover:underline transition duration-400"
-                href="/get-started"
+                href="/signup"
               >
                 Sign up
               </a>
