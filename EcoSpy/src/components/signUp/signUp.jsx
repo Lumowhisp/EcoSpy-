@@ -41,7 +41,7 @@ function Signup() {
         name: userName || user.displayName || "",
         email: userEmail,
         phone: "", // if you want phone at signup, add an input and replace this
-        plan: "Regular",
+        plan: "",
         ecopoints: 0,
         wastecollected: 0,
         createdAt: serverTimestamp(),

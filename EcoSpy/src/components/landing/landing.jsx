@@ -24,10 +24,10 @@ function Landing() {
               </li>
               <li>
                 <Link
-                  to="/"
+                  to="/contactus"
                   className="text-2xl hover:text-green-600 hover:underline transition duration-400"
                 >
-                  Link
+                  Contact Us
                 </Link>
               </li>
               <li>

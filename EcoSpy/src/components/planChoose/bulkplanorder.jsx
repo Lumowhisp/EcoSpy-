@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { db } from "../../firebase";
 import { getAuth, onAuthStateChanged } from "firebase/auth";
-import { doc, collection, addDoc } from "firebase/firestore";
+import { doc, collection, addDoc, updateDoc } from "firebase/firestore";
 import { useNavigate } from "react-router-dom";
 
 const BulkPlanOrder = () => {
@@ -47,6 +47,8 @@ const BulkPlanOrder = () => {
         address,
         createdAt: new Date(),
       });
+      // Update user's plan to "Bulk Pickup"
+      await updateDoc(userRef, { plan: "Bulk" });
 
       // Show success animation
       setShowSuccess(true);

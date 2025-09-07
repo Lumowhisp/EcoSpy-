@@ -141,7 +141,7 @@ function Aboutus() {
                 Because adulting is hard… but throwing waste shouldn’t be.
               </p>
               <a
-                href="#signup"
+                href="/signup"
                 className="flex justify-center items-center max-w-5xl mt-4 bg-green-700 text-white px-6 py-3 rounded hover:bg-green-200 hover:text-green-900 transition shadow-green-950"
               >
                 Get Started

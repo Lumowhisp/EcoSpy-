@@ -7,7 +7,7 @@ import WasteHistory from "./wasteHistory";
 import WasteTypeChart from "./wasteTypeGraph";
 import BulkOrderNotification from "./bulknotification";
 
-function Dash() {
+function Num() {
   const [plan, setPlan] = useState("");
   const [ecopoints, setEcopoints] = useState(0);
   const [wastecollected, setWasteCollected] = useState(0);
@@ -289,8 +289,8 @@ function Dash() {
                 </label>
                 <input
                   type="tel"
-                  value={profileData.phone}
-                  onChange={(e) => handleInputChange("phone", e.target.value)}
+                  value={profileData.mobile}
+                  onChange={(e) => handleInputChange("mobile", e.target.value)}
                   disabled={!isEditing}
                   className={`w-full px-3 py-2 border rounded-lg ${
                     isEditing
@@ -372,7 +372,7 @@ function Dash() {
       )}
 
       {/* Main Content */}
-      <header>
+      <header className="fixed top-0 left-0 w-full bg-white shadow-md z-50">
         <div className="flex justify-between items-center h-17 w-full">
           <div className="flex">
             <Link to="/">
@@ -389,12 +389,18 @@ function Dash() {
           <div className="flex items-center space-x-5">
             <ul className="flex space-x-5 pr-5 text-green-900 text-lg">
               <li>
-                <a href="/aboutus">About Us</a>
+                <a className="hover:underline" href="/aboutus">
+                  About Us
+                </a>
               </li>
               <li>
-                <a href="/">Home</a>
+                <a className="hover:underline" href="/">
+                  Logout
+                </a>
               </li>
-              <li>Contact Us</li>
+              <li>
+                <a className="hover:underline">Contact Us</a>
+              </li>
             </ul>
 
             {/* Profile Button */}
@@ -431,127 +437,142 @@ function Dash() {
           </div>
         </div>
       </header>
-
-      <div>
-        <div className="flex justify-center">
-          <div className="backdrop-blur-sm bg-white/30 p-6 rounded-xl w-[90vw] hover:backdrop-blur-md hover:bg-amber-500/30 transform transition duration-1000">
-            {/* Stats Cards */}
-            <div className="flex justify-between mt-7 mx-20 mb-7">
-              <div className="h-[40vh] w-[20vw] bg-green-100 rounded-xl pt-3 hover:scale-110 transform transition duration-500 hover:shadow-2xl hover:shadow-green-900">
-                <h2>
-                  <strong>
-                    <span className="text-4xl text-green-900 pl-3">
-                      Eco Warrior
-                    </span>
-                  </strong>
-                </h2>
-                <h3>
-                  <span className="text-xl text-green-700 pl-3">Status</span>
-                </h3>
-                <div className="flex flex-col justify-center items-center h-52">
-                  <div className="flex items-center justify-center bg-green-300 w-2/3 h-1/3 rounded-4xl pb-3 mb-7 ">
-                    <p>
-                      <span className="text-4xl text-green-900 font-extrabold">
-                        {wastecollected ? wastecollected : "0"}
-                        <span>kg</span>
-                      </span>
-                    </p>
-                  </div>
-                  <div className="font-delius text-xl">
-                    <p>Waste Collected</p>
-                  </div>
-                </div>
-              </div>
-
-              <div className="h-[40vh] w-[20vw] bg-green-100 rounded-xl pt-3 hover:scale-110 transform transition duration-500 hover:shadow-2xl hover:shadow-green-900">
-                <h2>
-                  <strong>
-                    <span className="text-4xl text-green-900 pl-3">
-                      EcoPoints
-                    </span>
-                  </strong>
-                </h2>
-                <h3>
-                  <span className="text-xl text-green-700 pl-3">Earned</span>
-                </h3>
-                <div className="flex flex-col justify-center items-center h-52">
-                  <div className="flex items-center justify-center bg-green-300 w-2/3 h-1/3 rounded-4xl pb-2 mb-5 ">
-                    <p>
-                      <span className="text-4xl font-extrabold text-green-900">
-                        {ecopoints ? ecopoints : "0"}
-                      </span>
-                    </p>
-                  </div>
-                  <div className="font-delius text-xl">
-                    <p>1 EcoPoint &#61; &#8377;0.5</p>
-                  </div>
-                </div>
-              </div>
-
-              <div className="h-[40vh] w-[20vw] bg-green-100 rounded-xl pt-3 hover:scale-110 transform transition duration-500 hover:shadow-2xl hover:shadow-green-900">
-                <div>
+      <div className="pt-28">
+        <div>
+          <div className="flex justify-center">
+            <div className="backdrop-blur-sm bg-white/30 p-6 rounded-xl w-[90vw] hover:backdrop-blur-md hover:bg-amber-500/30 transform transition duration-1000">
+              <p>
+                <span className="text-4xl font-extrabold text-emerald-900">
+                  Hey,
+                </span>{" "}
+                <br />
+                <span className="text-3xl font-bold text-emerald-800 ">
+                  {profileData.name || "User"}
+                </span>
+              </p>
+              {/* Stats Cards */}
+              <div className="flex justify-between mt-7 mx-20 mb-7">
+                <div className="h-[40vh] w-[20vw] bg-green-100 rounded-xl pt-3 hover:scale-110 transform transition duration-500 hover:shadow-2xl hover:shadow-green-900">
                   <h2>
                     <strong>
-                      <span className="text-4xl text-green-900 pl-3 ">
-                        Current Plan
+                      <span className="text-4xl text-green-900 pl-3">
+                        Eco Warrior
                       </span>
                     </strong>
                   </h2>
                   <h3>
-                    <span className="text-xl text-green-700 pl-3">EcoWins</span>
+                    <span className="text-xl text-green-700 pl-3">Status</span>
                   </h3>
-                </div>
-                <div className="flex flex-col justify-center items-center h-52">
-                  <div className="flex items-center justify-center bg-green-300 w-2/3 h-1/3 rounded-4xl pb-2 ">
-                    <p>
-                      <span className="text-4xl font-playfair-display">
-                        {plan ? plan : "...Loading"}
-                      </span>
-                    </p>
-                  </div>
-                  <div className="flex space-x-2 mt-7">
-                    <div>
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        strokeWidth="1.5"
-                        stroke="currentColor"
-                        className=" size-6"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0 3.181 3.183a8.25 8.25 0 0 0 13.803-3.7M4.031 9.865a8.25 8.25 0 0 1 13.803-3.7l3.181 3.182m0-4.991v4.99"
-                        />
-                      </svg>
-                    </div>
-                    <div className="text-xl font-delius">
+                  <div className="flex flex-col justify-center items-center h-52">
+                    <div className="flex items-center justify-center bg-green-300 w-2/3 h-1/3 rounded-4xl pb-3 mb-7 ">
                       <p>
-                        <a href="/PlanChoosing">Bulk Pickup</a>
+                        <span className="text-4xl text-green-900 font-extrabold">
+                          {wastecollected ? wastecollected : "0"}
+                          <span>kg</span>
+                        </span>
                       </p>
+                    </div>
+                    <div className="font-delius text-xl">
+                      <p>Waste Collected</p>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="h-[40vh] w-[20vw] bg-green-100 rounded-xl pt-3 hover:scale-110 transform transition duration-500 hover:shadow-2xl hover:shadow-green-900">
+                  <h2>
+                    <strong>
+                      <span className="text-4xl text-green-900 pl-3">
+                        EcoPoints
+                      </span>
+                    </strong>
+                  </h2>
+                  <h3>
+                    <span className="text-xl text-green-700 pl-3">Earned</span>
+                  </h3>
+                  <div className="flex flex-col justify-center items-center h-52">
+                    <div className="flex items-center justify-center bg-green-300 w-2/3 h-1/3 rounded-4xl pb-2 mb-5 ">
+                      <p>
+                        <span className="text-4xl font-extrabold text-green-900">
+                          {ecopoints ? ecopoints : "0"}
+                        </span>
+                      </p>
+                    </div>
+                    <div className="font-delius text-xl">
+                      <p>1 EcoPoint &#61; &#8377;0.5</p>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="h-[40vh] w-[20vw] bg-green-100 rounded-xl pt-3 hover:scale-110 transform transition duration-500 hover:shadow-2xl hover:shadow-green-900">
+                  <div>
+                    <h2>
+                      <strong>
+                        <span className="text-4xl text-green-900 pl-3 ">
+                          Current Plan
+                        </span>
+                      </strong>
+                    </h2>
+                    <h3>
+                      <span className="text-xl text-green-700 pl-3">
+                        EcoWins
+                      </span>
+                    </h3>
+                  </div>
+                  <div className="flex flex-col justify-center items-center h-52">
+                    <div className="flex items-center justify-center bg-green-300 w-2/3 h-1/3 rounded-4xl pb-2 ">
+                      <p>
+                        <span className="text-4xl font-playfair-display">
+                          {plan ? plan : "...Loading"}
+                        </span>
+                      </p>
+                    </div>
+                    <div className="flex space-x-2 mt-7">
+                      <div>
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                          strokeWidth="1.5"
+                          stroke="currentColor"
+                          className=" size-6"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0 3.181 3.183a8.25 8.25 0 0 0 13.803-3.7M4.031 9.865a8.25 8.25 0 0 1 13.803-3.7l3.181 3.182m0-4.991v4.99"
+                          />
+                        </svg>
+                      </div>
+                      <div className="text-xl font-delius">
+                        <p>
+                          <a href="/PlanChoosing">Bulk Pickup</a>
+                        </p>
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
 
-        <div className="flex mt-5 space-x-3 ml-18">
-          <div>
-            <BulkOrderNotification />
-          </div>
-          <div>
-            <WasteHistory />
-          </div>
-          <div className="w-2xl h-full">
-            <WasteTypeChart />
+          <div className="flex mt-5 space-x-3">
+            <div>
+              <BulkOrderNotification />
+            </div>
+            <div>
+              <WasteHistory />
+            </div>
+            <div className="w-2xl h-full">
+              <WasteTypeChart />
+            </div>
           </div>
         </div>
+        <footer className="flex items-center justify-center text-green-1000 p-4">
+          <p>&copy; 2025 EcoSpy. All rights reserved.</p>
+        </footer>
       </div>
     </div>
   );
 }
 
-export default Dash;
+export default Num;

@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-
+import { doc, getDoc } from "firebase/firestore";
+import { db } from "../../firebase"; 
 import { auth } from "../../firebase";
 import { signInWithEmailAndPassword } from "firebase/auth";
 
@@ -10,18 +11,41 @@ const GetStarted = () => {
   const [error, setError] = useState("");
   const navigate = useNavigate();
 
-  const handleSignin = () => {
-    signInWithEmailAndPassword(auth, email, password)
-      .then((userCredential) => {
-        // Signed in successfully
-        const user = userCredential.user;
-        console.log("Signed in user:", user);
-        navigate("/dashBoard"); // jaha redirect karna ho
-      })
-      .catch((error) => {
-        setError(error.message); // error message show kar de
-      });
-  };
+  // const handleSignin = () => {
+  //   signInWithEmailAndPassword(auth, email, password)
+  //     .then((userCredential) => {
+  //       // Signed in successfully
+  //       const user = userCredential.user;
+  //       console.log("Signed in user:", user);
+  //       navigate("/dashBoard"); // jaha redirect karna ho
+  //     })
+  //     .catch((error) => {
+  //       setError(error.message); // error message show kar de
+  //     });
+  // };
+  
+
+const handleSignin = () => {
+  signInWithEmailAndPassword(auth, email, password)
+    .then(async (userCredential) => {
+      const user = userCredential.user;
+
+      // User ka document fetch karo
+      const docRef = doc(db, "users", user.uid);
+      const docSnap = await getDoc(docRef);
+
+      if (docSnap.exists() && docSnap.data().plan) {
+        // Agar plan hai → purana user
+        navigate("/dashBoard");
+      } else {
+        // Agar plan nahi hai → naya user
+        navigate("/planChoosing");
+      }
+    })
+    .catch((error) => {
+      setError(error.message);
+    });
+};
 
   return (
     <div className="min-h-screen flex flex-col bg-gradient-to-b from-green-400 to bg-green-200">
