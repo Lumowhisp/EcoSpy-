@@ -1,57 +1,71 @@
-# EcoSpy - React Branch
+# EcoSpy – Smart Waste Management System ♻️
 
-EcoSpy is an innovative environmental monitoring application designed to help users track and analyze ecological data efficiently. This React branch focuses on delivering a responsive and user-friendly interface to enhance user interaction with environmental datasets.
+EcoSpy is a smart waste management system designed to promote sustainable waste disposal through **real-time waste detection, segregation, and user incentives**. Our goal is to make communities cleaner while rewarding users for responsible waste management.
 
-## Features
+## 🚀 Project Overview
+- Daily **doorstep waste pickup**.  
+- Segregation into **Recyclable, Non-Recyclable, and Wet Waste**.  
+- **Image recognition model (YOLOv8 + OpenCV)** classifies recyclable items.  
+- Users earn **EcoPoints** for recyclables (1 point = ₹0.5).  
+- **Bulk Orders:** >15kg recyclable waste → flexible pickup option.  
+- **Dashboard:** Real-time tracking of collected waste & points earned.  
+- **Future Scope:** Smart segregation machine on vehicles + weighing system.  
 
-- **Real-time Data Visualization:** Interactive charts and graphs displaying environmental metrics.
-- **User Authentication:** Secure login and registration system.
-- **Data Filtering:** Advanced filters to customize data views.
-- **Responsive Design:** Optimized for desktops, tablets, and mobile devices.
-- **API Integration:** Seamless integration with backend services for data retrieval and updates.
+## 🛠️ Tech Stack
 
-## Installation
+**Programming Languages:**  
+- Python → Image recognition, detection model, Tkinter UI for admin  
+- JavaScript (React) → Frontend website & dashboard  
 
-1. Clone the repository:
-   ```
-   git clone https://github.com/yourusername/EcoSpy-React.git
-   ```
-2. Navigate to the project directory:
-   ```
-   cd EcoSpy-React/EcoSpy
-   ```
-3. Install dependencies:
-   ```
-   npm install
-   ```
-4. Start the development server:
-   ```
-   npm start
-   ```
+**Frameworks & Libraries:**  
+- React + Vite → Frontend  
+- TailwindCSS → Styling  
+- React Router DOM → Navigation  
+- Recharts → Graphs & analytics  
+- Firebase → Database (Firestore), Authentication, Hosting  
+- YOLOv8 (Ultralytics) + OpenCV → Real-time waste detection  
+- Tkinter → System admin UI  
 
-## Usage
+**Hardware:**  
+- Laptop + Camera → Real-time image capture  
+- Future → Smart segregation vehicle + digital weighing machine  
 
-- Access the application at `http://localhost:3000` after starting the development server.
-- Register or log in to your account.
-- Navigate through the dashboard to view and analyze environmental data.
-- Use filters to customize the data display according to your preferences.
+## ✨ Features
+- Real-time image detection of waste items.  
+- EcoPoints rewarded for recyclable waste.  
+- Bulk waste pickup scheduling.  
+- User dashboard with history and EcoPoints card.  
+- Firebase authentication & database updates.  
+- Live dashboard updates for trust and transparency.  
 
-## Contributing
+## 📂 Project Structure
+```
+EcoSpy/
+├── frontend/              # React + Vite (website & dashboard)
+├── detection/             # Python YOLOv8 + OpenCV waste detection
+├── firebase/              # Firebase setup & configs
+├── assets/                # Images & icons
+├── README.md
+└── ...
+```
 
-Contributions are welcome! Please fork the repository and create a pull request with your changes. Ensure your code follows the project's coding standards and includes relevant tests.
+## 🔮 Future Improvements
+- IoT-enabled **weighing machine** for accurate weight tracking.  
+- **Smart segregation machine** mounted on collection vehicles.  
+- **Mobile app** for better accessibility.  
+- **AI-powered trend analytics** for waste management insights.  
 
-## License
+## 👥 Team Members
+- **Aditya Kumar (Lumowhisp)** – Project Lead & Developer  
+- **Abhishek Kumar** – Automation & Backend Support  
+- **Shivendra Kumar** – Automation  
+- **Gurleen Kaur** – Presentation & Outreach  
+- **Shlok Gupta** – Testing  
+- **Aman Tiwari** – Logistics & Support  
 
-This project is licensed under the MIT License. See the LICENSE file for details.
-
-## Contact
-
-For any inquiries or support, please contact:
-
-- Founder: Aditya
-- Email: kumaraditya12981006@gmail.com
-- GitHub: [https://github.com/yourusername/EcoSpy-React](https://github.com/yourusername/EcoSpy-React)
+## 📜 License
+This project is licensed under the MIT License.  
 
 ---
 
-Thank you for using EcoSpy! Together, we can make a difference in environmental conservation.
+✨ *EcoSpy – Rewarding responsible waste disposal for a cleaner tomorrow!* ✨
